@@ -55,12 +55,12 @@ String dateOfBirth, String validDate, String expireDate)
         fullCard += String.format("║%-25s%-15s%-30s║%n", "", LABEL_EXPIRE_DATE, expireDate);
         fullCard += String.format("║%-25s%-45s║%n", ASCII_CREDIT, LABEL_REENTRY_DISCLAIMER);
         fullCard += String.format("╚══════════════════════════════════════════════════════════════════════╝%n");
-        return result;
+        return fullCard;
 }
 
     public static void main(String[] args)
     {
-      Main.fullCard();
+      Main.formatCard("CHAPETON-LAMAS", );
     }
 
 
