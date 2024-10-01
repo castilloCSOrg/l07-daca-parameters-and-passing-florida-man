@@ -4,34 +4,70 @@
 
 public class Main
 {
-    public static void main(String[] args)
-    {
-        //ascii art credit: http://www.oocities.org/spunk1111/bodypart.htm
-        final String ASCII_ART_0 = "    .----.    .----.  ",
-                ASCII_ART_1 = "   (  --  \\  /  --  )",
-                ASCII_ART_2 = "          |  |        ",
-                ASCII_ART_3 = "         _/  \\_      ",
-                ASCII_ART_4 = "        (_    _)      ",
-                ASCII_ART_5 = "     ,    `--`    ,   ",
-                ASCII_ART_6 = "     \\'-.______.-'/  ",
-                ASCII_ART_7 = "      \\          /   ",
-                ASCII_ART_8 = "       '.--..--.'     ",
-                ASCII_ART_9 = "         `\"\"\"\"\"` ",
-                ASCII_CREDIT = "   ascii art by: jgs    ";
+  //ascii art credit: http://www.oocities.org/spunk1111/bodypart.htm
+  final static String ASCII_ART_0 = "    .----.    .----.  ",
+  ASCII_ART_1 = "   (  --  \\  /  --  )",
+  ASCII_ART_2 = "          |  |        ",
+  ASCII_ART_3 = "         _/  \\_      ",
+  ASCII_ART_4 = "        (_    _)      ",
+  ASCII_ART_5 = "     ,    `--`    ,   ",
+  ASCII_ART_6 = "     \\'-.______.-'/  ",
+  ASCII_ART_7 = "      \\          /   ",
+  ASCII_ART_8 = "       '.--..--.'     ",
+  ASCII_ART_9 = "         `\"\"\"\"\"` ",
+  ASCII_CREDIT = "   ascii art by: jgs    ";
 
-        final String TITLE_USA = "UNITED STATES OF AMERICA",
-                TITLE_EAC = "EMPLOYMENT AUTHORIZATION CARD";
-        final String LABEL_SURNAME = "Surname", LABEL_GIVEN_NAME = "Given Name", LABEL_USCIS_NUM = "USCIS#",
-                LABEL_CATEGORY = "Category", LABEL_CARD_NUM = "Card#", LABEL_BIRTH_COUNTRY = "Country of Birth",
-                LABEL_TERMS_CONDITIONS = "Terms and Conditions", LABEL_BIRTH_DATE = "Date of Birth",
-                LABEL_SEX = "Sex", LABEL_VALID_DATE = "Valid From:", LABEL_EXPIRE_DATE = "Card Expires:",
-                LABEL_REENTRY_DISCLAIMER = "NOT VALID FOR REENTRY TO U.S.";
+final static String TITLE_USA = "UNITED STATES OF AMERICA",
+  TITLE_EAC = "EMPLOYMENT AUTHORIZATION CARD";
+final static String LABEL_SURNAME = "Surname", LABEL_GIVEN_NAME = "Given Name", LABEL_USCIS_NUM = "USCIS#",
+  LABEL_CATEGORY = "Category", LABEL_CARD_NUM = "Card#", LABEL_BIRTH_COUNTRY = "Country of Birth",
+  LABEL_TERMS_CONDITIONS = "Terms and Conditions", LABEL_BIRTH_DATE = "Date of Birth",
+  LABEL_SEX = "Sex", LABEL_VALID_DATE = "Valid From:", LABEL_EXPIRE_DATE = "Card Expires:",
+  LABEL_REENTRY_DISCLAIMER = "NOT VALID FOR REENTRY TO U.S.";
 
-        //DECLARATION SECTION
-        //complete fields
-        String surname, givenName, category, cardNum, birthCountry, termsAndConditions;
+
+
+   public static String surname, givenName, category, cardNum, birthCountry, termsAndConditions;
         char sex;
 
+public static String formatCard(String surname, String givenName,
+String category, String cardNum, String birthCountry, 
+String termsAndConditions, char sex, String uscisNum, 
+String dateOfBirth, String validDate, String expireDate)
+{
+        String fullCard = "";
+        fullCard += String.format("╔══════════════════════════════════════════════════════════════════════╗%n");
+        fullCard += String.format("║%35s%35s║%n", TITLE_USA, "");
+        fullCard += String.format("║%60s%10s║%n", TITLE_EAC, "");
+        fullCard += String.format("║%-25s%-45s║%n", "", LABEL_SURNAME);
+        fullCard += String.format("║%-25s%-45s║%n", "", surname);
+        fullCard += String.format("║%-25s%-45s║%n", ASCII_ART_0, LABEL_GIVEN_NAME);
+        fullCard += String.format("║%-25s%-45s║%n", ASCII_ART_1, givenName);
+        fullCard += String.format("║%-25s%-15s%-15s%-15s║%n", ASCII_ART_2, LABEL_USCIS_NUM, LABEL_CATEGORY, LABEL_CARD_NUM);
+        fullCard += String.format("║%-25s%-15s%-15s%-15s║%n", ASCII_ART_3, uscisNum, category, cardNum);
+        fullCard += String.format("║%-25s%-45s║%n", ASCII_ART_4, LABEL_BIRTH_COUNTRY);
+        fullCard += String.format("║%-25s%-45s║%n", ASCII_ART_5, birthCountry);
+        fullCard += String.format("║%-25s%-45s║%n", ASCII_ART_6, LABEL_TERMS_CONDITIONS);
+        fullCard += String.format("║%-25s%-45s║%n", ASCII_ART_7, termsAndConditions);
+        fullCard += String.format("║%-25s%-15s%-30s║%n", ASCII_ART_8, LABEL_BIRTH_DATE, LABEL_SEX);
+        fullCard += String.format("║%-25s%-15s%-30s║%n", ASCII_ART_9, dateOfBirth, sex);
+        fullCard += String.format("║%-25s%-15s%-30s║%n", "", LABEL_VALID_DATE, validDate);
+        fullCard += String.format("║%-25s%-15s%-30s║%n", "", LABEL_EXPIRE_DATE, expireDate);
+        fullCard += String.format("║%-25s%-45s║%n", ASCII_CREDIT, LABEL_REENTRY_DISCLAIMER);
+        fullCard += String.format("╚══════════════════════════════════════════════════════════════════════╝%n");
+        return result;
+}
+
+    public static void main(String[] args)
+    {
+      Main.fullCard();
+    }
+
+
+    
+        //DECLARATION SECTION
+        //complete fields
+        
         //parts of fields
         String birthMonth;
         int uscisNum1, uscisNum2, uscisNum3, birthDay, birthYear,
@@ -71,29 +107,13 @@ public class Main
         validDate = String.format("%02d/%02d/%4d", validMonth, validDay, validYear);
         expireDate = String.format("%02d/%02d/%4d", expireMonth, expireDay, expireYear);
 
+        
+
 
         //INPUT + CALCULATION SECTION
         //N/A
 
         //OUTPUT SECTION
-        System.out.printf("╔══════════════════════════════════════════════════════════════════════╗%n");
-        System.out.printf("║%35s%35s║%n", TITLE_USA, "");
-        System.out.printf("║%60s%10s║%n", TITLE_EAC, "");
-        System.out.printf("║%-25s%-45s║%n", "", LABEL_SURNAME);
-        System.out.printf("║%-25s%-45s║%n", "", surname);
-        System.out.printf("║%-25s%-45s║%n", ASCII_ART_0, LABEL_GIVEN_NAME);
-        System.out.printf("║%-25s%-45s║%n", ASCII_ART_1, givenName);
-        System.out.printf("║%-25s%-15s%-15s%-15s║%n", ASCII_ART_2, LABEL_USCIS_NUM, LABEL_CATEGORY, LABEL_CARD_NUM);
-        System.out.printf("║%-25s%-15s%-15s%-15s║%n", ASCII_ART_3, uscisNum, category, cardNum);
-        System.out.printf("║%-25s%-45s║%n", ASCII_ART_4, LABEL_BIRTH_COUNTRY);
-        System.out.printf("║%-25s%-45s║%n", ASCII_ART_5, birthCountry);
-        System.out.printf("║%-25s%-45s║%n", ASCII_ART_6, LABEL_TERMS_CONDITIONS);
-        System.out.printf("║%-25s%-45s║%n", ASCII_ART_7, termsAndConditions);
-        System.out.printf("║%-25s%-15s%-30s║%n", ASCII_ART_8, LABEL_BIRTH_DATE, LABEL_SEX);
-        System.out.printf("║%-25s%-15s%-30s║%n", ASCII_ART_9, dateOfBirth, sex);
-        System.out.printf("║%-25s%-15s%-30s║%n", "", LABEL_VALID_DATE, validDate);
-        System.out.printf("║%-25s%-15s%-30s║%n", "", LABEL_EXPIRE_DATE, expireDate);
-        System.out.printf("║%-25s%-45s║%n", ASCII_CREDIT, LABEL_REENTRY_DISCLAIMER);
-        System.out.printf("╚══════════════════════════════════════════════════════════════════════╝%n");
+        
     }
 }
