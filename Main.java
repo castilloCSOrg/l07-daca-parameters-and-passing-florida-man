@@ -68,8 +68,8 @@ public class Main
         //Strings to help clean up long printf's below
         uscisNum = String.format("%03d-%03d-%03d", uscisNum1, uscisNum2, uscisNum3);
         dateOfBirth = String.format("%02d %s %d", birthDay, birthMonth, birthYear);     
-        validDate = Main.calcDate(validMonth, validDay, validYear);
-        expireDate = Main.calcDate(expireMonth, expireDay, expireYear);
+        validDate = Main.formatDate(validMonth, validDay, validYear);
+        expireDate = Main.formatDate(expireMonth, expireDay, expireYear);
 
         System.out.println(Main.formatCard(surname, givenName, category, cardNum, birthCountry, termsAndConditions, sex, uscisNum, dateOfBirth, validDate, expireDate));
     }
@@ -103,10 +103,10 @@ public class Main
         fullcard += String.format("║%-25s%-15s%-30s║%n", "", LABEL_VALID_DATE, validDate);
         fullcard += String.format("║%-25s%-15s%-30s║%n", "", LABEL_EXPIRE_DATE, expireDate);
         fullcard += String.format("║%-25s%-45s║%n", ASCII_CREDIT, LABEL_REENTRY_DISCLAIMER);
-        fullcard += String.format("╚══════════════════════════════════════════════════════════════════════╝%n");
+        fullcard += String.format("╚══════════════════════════════════════════════════════════════════════╝");
         return fullcard;
     }
-    public static String calcDate(int month, int Day, int Year)
+    public static String formatDate(int month, int Day, int Year)
     {
         String formattedDate;
         formattedDate = String.format("%02d/%02d/%4d", month, Day, Year);
