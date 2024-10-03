@@ -35,8 +35,7 @@ public class Main
 
         //parts of fields
         String birthMonth;
-        int uscisNum1, uscisNum2, uscisNum3, birthDay, birthYear,
-                validDay, validMonth, validYear, expireMonth, expireDay, expireYear;
+        int uscisNum1, uscisNum2, uscisNum3, birthDay, birthYear, validDay, validMonth, validYear, expireMonth, expireDay, expireYear;
 
         //extra vars to help with formatting of Strings (not raw data like above vars)
         String uscisNum, dateOfBirth, validDate, expireDate;
@@ -69,8 +68,8 @@ public class Main
         //Strings to help clean up long printf's below
         uscisNum = String.format("%03d-%03d-%03d", uscisNum1, uscisNum2, uscisNum3);
         dateOfBirth = String.format("%02d %s %d", birthDay, birthMonth, birthYear);     
-        validDate = Main.calcDate(2, 2, 2020);
-        expireDate = Main.calcDate(2, 2, 2022);
+        validDate = Main.calcDate(validMonth, validDay, validYear);
+        expireDate = Main.calcDate(expireMonth, expireDay, expireYear);
 
         System.out.println(Main.formatCard(surname, givenName, category, cardNum, birthCountry, termsAndConditions, sex, uscisNum, dateOfBirth, validDate, expireDate));
     }
