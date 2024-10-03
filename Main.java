@@ -55,8 +55,26 @@ public class Main
         birthMonth = "JAN";
         birthYear = 1970;
 
-        sex = 'M'; //note single quotes
+        sex = UtilityBelt.readChar("Male or Female?", "MF");
 
+        surname = UtilityBelt.readString("What is your surname?", 2, 4);
+        givenName = UtilityBelt.readString("What is your given name?", 2, 45);
+        category = UtilityBelt.readString("What is your given Category?", 2, 15);
+        cardNum = UtilityBelt.readString("What is your card number?", 2, 15);
+        birthCountry = UtilityBelt.readString("What is your birth country?", 2, 45);
+        termsAndConditions =UtilityBelt.readString("Do you have any terms and conditions?", 2, 45);
+        birthMonth = UtilityBelt.readString("What month were you born?", 3, 3);
+        
+
+        uscisNum1 = UtilityBelt.readInt("Enter UCSCIS number part 1", 3, 3);
+        uscisNum2 = UtilityBelt.readInt("Enter UCSCIS number part 2", 3, 3);
+        uscisNum3 = UtilityBelt.readInt("Enter UCSCIS number part 3", 3, 3);
+        birthDay = UtilityBelt.readInt("What day of the month were you born?", 1, 2);
+        birthYear = UtilityBelt.readInt("What year were you born?", 4, 4);
+
+
+        
+ 
         validMonth = 2;
         validDay = 2;
         validYear = 2020;
@@ -64,6 +82,7 @@ public class Main
         expireMonth = 2;
         expireDay = 2;
         expireYear = 2022;
+
 
         //Strings to help clean up long printf's below
         uscisNum = String.format("%03d-%03d-%03d", uscisNum1, uscisNum2, uscisNum3);
@@ -114,6 +133,8 @@ public class Main
         return formattedDate;
 
     }
+    
+
 
 
 }
